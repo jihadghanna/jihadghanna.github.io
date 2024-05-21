@@ -15,12 +15,12 @@
 <p>This is submission detected by a navigation that is not the result of a link click. </p>
 
 <form action='a.html' name='formname' id='formid'>
-    Name: <input type="text" name="name" placeholder="Name"><br>
-    Address: <input type="text" name="address" placeholder="Address"><br>
+    Name: <input type="text" name="name" placeholder="Name" autocomplete="name"><br>
+    Address: <input type="text" name="street-address" placeholder="Street Address" autocomplete="street-address"><br>
     City: <input type="text" name="city" placeholder="City"><br>
-    Zip: <input name="zip" id="form_zip" placeholder="Zip"> <br>
-    Country: <input name="country" id="form_country" placeholder="Country"> <br>
-    Email: <input name="email" id="form_email" placeholder="Email"> <br>
+    Zip: <input name="zip" id="form_zip" placeholder="Zip" autocomplete="postal-code"> <br>
+    Country: <input name="country" id="form_country" placeholder="Country" autocomplete="country-name"> <br>
+    Email: <input name="email" id="form_email" placeholder="Email" autocomplete="email"> <br>
     <button type="button" id='submit' onclick='navigate()'>Submit</button>
 </form>
 </body>
