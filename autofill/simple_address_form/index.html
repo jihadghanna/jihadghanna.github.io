@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Autofill Simple Address Form</title>
+</head>
+<body>
+  <script>
+    function navigate() {
+        window.location.href = 'https://jihadghanna.github.io/post/';
+    }
+</script>
+
+<h1>Autofill Simple Address Form</h1>
+
+<form action='https://jihadghanna.github.io/post/index.html' name='address_form' id='address_form'>
+    Name: <input type="text" name="name" placeholder="Name" autocomplete="name"><br>
+    Address: <input type="text" name="street-address" placeholder="Street Address" autocomplete="street-address"><br>
+    City: <input type="text" name="city" placeholder="City"><br>
+    Zip: <input name="zip" id="form_zip" placeholder="Zip" autocomplete="postal-code"> <br>
+    Country: <input name="country" id="form_country" placeholder="Country" autocomplete="country-name"> <br>
+    Email: <input name="email" id="form_email" placeholder="Email" autocomplete="email"> <br>
+    <input type="submit" value="Submit" id="submit"/>
+</form>
+
+</body>
+</html>
