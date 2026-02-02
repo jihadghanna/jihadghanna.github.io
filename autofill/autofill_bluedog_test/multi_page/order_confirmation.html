@@ -58,8 +58,12 @@
     document.addEventListener('DOMContentLoaded', function() {
         const urlParams = new URLSearchParams(window.location.search);
 
-        // Helper to get param safely
-        const getParam = (name) => urlParams.get(name) || '';
+        // Helper to get param safely (URL first, then SessionStorage)
+        const getParam = (name) => {
+            const val = urlParams.get(name);
+            if (val) return val;
+            return sessionStorage.getItem(name) || '';
+        };
 
         // Construct Shipping Address
         const shippingAddressParts = [

@@ -32,6 +32,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
         billingCheckbox.addEventListener('change', toggleBilling);
     }
+
+    // Persist form data to SessionStorage for multi-page flows
+    const forms = document.querySelectorAll('form');
+    forms.forEach(form => {
+        form.addEventListener('submit', function() {
+            const formData = new FormData(form);
+            for (const [key, value] of formData.entries()) {
+                sessionStorage.setItem(key, value);
+            }
+        });
+    });
 });
 
 function toggleAccordion(stepName) {
