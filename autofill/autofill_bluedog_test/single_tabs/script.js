@@ -11,14 +11,26 @@ document.addEventListener('DOMContentLoaded', function() {
     // Billing Address Toggle
     const billingCheckbox = document.getElementById('billing-same-as-shipping');
     const billingFields = document.getElementById('billing-fields');
+
+    function toggleBilling() {
+        if (!billingCheckbox || !billingFields) return;
+
+        const inputs = billingFields.querySelectorAll('input, select, textarea');
+
+        if (billingCheckbox.checked) {
+            billingFields.style.display = 'none';
+            inputs.forEach(input => input.disabled = true);
+        } else {
+            billingFields.style.display = 'block';
+            inputs.forEach(input => input.disabled = false);
+        }
+    }
+
     if (billingCheckbox && billingFields) {
-        billingCheckbox.addEventListener('change', function() {
-            if (this.checked) {
-                billingFields.style.display = 'none';
-            } else {
-                billingFields.style.display = 'block';
-            }
-        });
+        // Set initial state
+        toggleBilling();
+
+        billingCheckbox.addEventListener('change', toggleBilling);
     }
 });
 
