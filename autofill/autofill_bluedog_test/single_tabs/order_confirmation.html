@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Order Confirmation
+  </title>
+  <link href="style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <header>
+   <h1>
+    Mock Checkout Site
+   </h1>
+  </header>
+  <main>
+   <div class="confirmation-container">
+    <h1>
+     Order Confirmed!
+    </h1>
+    <p>
+     Thank you for your order.
+    </p>
+    <div id="order-details">
+     <h3>
+      Order Summary
+     </h3>
+     <p>
+      <strong>
+       Shipping Address:
+      </strong>
+      <span id="conf-shipping-address">
+      </span>
+     </p>
+     <p>
+      <strong>
+       Billing Address:
+      </strong>
+      <span id="conf-billing-address">
+      </span>
+     </p>
+     <p>
+      <strong>
+       Payment Method:
+      </strong>
+      <span id="conf-payment-method">
+      </span>
+     </p>
+    </div>
+    <div class="actions">
+     <a class="btn" href="checkout.html">
+      Return to Home
+     </a>
+    </div>
+   </div>
+   <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const urlParams = new URLSearchParams(window.location.search);
+
+        // Helper to get param safely
+        const getParam = (name) => urlParams.get(name) || '';
+
+        // Construct Shipping Address
+        const shippingAddressParts = [
+            getParam('address_line1') || getParam('street_address'),
+            getParam('city'),
+            getParam('zip')
+        ];
+        const shippingAddress = shippingAddressParts.filter(Boolean).join(', ');
+        const finalShippingAddress = shippingAddress || '123 Fake St, Springfield, USA';
+
+        document.getElementById('conf-shipping-address').textContent = finalShippingAddress;
+
+        // Construct Billing Address
+        let billingAddress = '';
+        if (getParam('same_as_shipping') === 'on') {
+            billingAddress = finalShippingAddress;
+        } else {
+            const billingAddressParts = [
+                getParam('billing_address_line1') || getParam('billing_street_address'),
+                getParam('billing_city'),
+                getParam('billing_zip')
+            ];
+            billingAddress = billingAddressParts.filter(Boolean).join(', ');
+        }
+        document.getElementById('conf-billing-address').textContent = billingAddress || 'Same as shipping (Default)';
+
+
+        // Payment masking logic
+        const ccNum = getParam('cc_number');
+        if (ccNum && ccNum.length >= 4) {
+            document.getElementById('conf-payment-method').textContent = 'Card ending in ' + ccNum.slice(-4);
+        } else {
+            document.getElementById('conf-payment-method').textContent = 'Credit Card (**** 1234)';
+        }
+    });
+   </script>
+  </main>
+  <footer>
+   <p>
+    © 2024 Mock Checkout
+   </p>
+  </footer>
+  <script src="script.js">
+  </script>
+ </body>
+</html>
