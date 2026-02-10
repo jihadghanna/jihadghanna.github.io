@@ -5,36 +5,52 @@
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+  <div class="top-bar">
+    <a href="../../index.html" class="back-button">Back</a>
+    <h1>Mock Checkout Site</h1>
+  </div>
+  <div class="content-wrapper">
+    <script>
+      function navigate() {
+          window.location.href = 'https://jihadghanna.github.io/post/';
+      }
+    </script>
+
+    <h1>Autofill Submission Test</h1>
+    <h2>Probably Form Submitted</h2>
+    <p>This is submission detected by a navigation that is not the result of a link click. </p>
+
+    <h3>Address Form</h3>
+
+    <form action='a.html' name='address_form' id='address_form'>
+        Name: <input type="text" name="name" placeholder="Name" autocomplete="name"><br>
+        Address: <input type="text" name="street-address" placeholder="Street Address" autocomplete="street-address"><br>
+        City: <input type="text" name="city" placeholder="City"><br>
+        Zip: <input name="zip" id="form_zip" placeholder="Zip" autocomplete="postal-code"> <br>
+        Country: <input name="country" id="form_country" placeholder="Country" autocomplete="country-name"> <br>
+        Email: <input name="email" id="form_email" placeholder="Email" autocomplete="email"> <br>
+        <button type="button" id='submit' onclick='navigate()'>Submit</button>
+    </form>
+
+    <br>
+
+    <h3>Login Form</h3>
+
+    <form action='a.html' name='login_form' id='login_form'>
+        Username: <input type="text" name="username" placeholder="Username"><br>
+        Password: <input type="password" name="password" placeholder="Password"><br>
+        <button type="button" id='submit' onclick='navigate()'>Submit</button>
+    </form>
+  </div>
   <script>
-    function navigate() {
-        window.location.href = 'https://jihadghanna.github.io/post/';
-    }
-</script>
-
-<h1>Autofill Submission Test</h1>
-<h2>Probably Form Submitted</h2>
-<p>This is submission detected by a navigation that is not the result of a link click. </p>
-
-<h3>Address Form</h3>
-
-<form action='a.html' name='address_form' id='address_form'>
-    Name: <input type="text" name="name" placeholder="Name" autocomplete="name"><br>
-    Address: <input type="text" name="street-address" placeholder="Street Address" autocomplete="street-address"><br>
-    City: <input type="text" name="city" placeholder="City"><br>
-    Zip: <input name="zip" id="form_zip" placeholder="Zip" autocomplete="postal-code"> <br>
-    Country: <input name="country" id="form_country" placeholder="Country" autocomplete="country-name"> <br>
-    Email: <input name="email" id="form_email" placeholder="Email" autocomplete="email"> <br>
-    <button type="button" id='submit' onclick='navigate()'>Submit</button>
-</form>
-
-<br>
-
-<h3>Login Form</h3>
-
-<form action='a.html' name='login_form' id='login_form'>
-    Username: <input type="text" name="username" placeholder="Username"><br>
-    Password: <input type="password" name="password" placeholder="Password"><br>
-    <button type="button" id='submit' onclick='navigate()'>Submit</button>
-</form>
+    window.addEventListener('scroll', function() {
+      const topBar = document.querySelector('.top-bar');
+      if (window.scrollY > 50) {
+        topBar.classList.add('scrolled');
+      } else {
+        topBar.classList.remove('scrolled');
+      }
+    });
+  </script>
 </body>
 </html>

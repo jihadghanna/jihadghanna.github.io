@@ -11,12 +11,27 @@
 </head>
 
 <body>
-  <ul>
-    <li><a href="autofill/agentic_autofill_test/">Agentic Autofill Testing Websites</a></li>
-    <li><a href="autofill/simple_address_form/">Autofill Simple Address Form</a></li>
-    <li><a href="autofill/submission_test/">Autofill Submission Test</a></li>
-    <li><a href="autofill/autocomplete_unrecognized/">Basic form key/value Autocomplete (autocomplete="unrecognized")</a></li>
-  </ul>
+  <div class="top-bar">
+    <h1>Mock Checkout Site</h1>
+  </div>
+  <div class="content-wrapper">
+    <ul>
+      <li><a href="autofill/agentic_autofill_test/">Agentic Autofill Testing Websites</a></li>
+      <li><a href="autofill/simple_address_form/">Autofill Simple Address Form</a></li>
+      <li><a href="autofill/submission_test/">Autofill Submission Test</a></li>
+      <li><a href="autofill/autocomplete_unrecognized/">Basic form key/value Autocomplete (autocomplete="unrecognized")</a></li>
+    </ul>
+  </div>
+  <script>
+    window.addEventListener('scroll', function() {
+      const topBar = document.querySelector('.top-bar');
+      if (window.scrollY > 50) {
+        topBar.classList.add('scrolled');
+      } else {
+        topBar.classList.remove('scrolled');
+      }
+    });
+  </script>
 </body>
 
 </html>

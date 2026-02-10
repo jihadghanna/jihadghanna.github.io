@@ -4,5 +4,23 @@
 <title>Autofill Submission Test Post Target</title>
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body><p>All submitted data is ignored. <a href="https://jihadghanna.github.io/autofill/">Go back</a>.</p></body>
+<body>
+  <div class="top-bar">
+    <a href="../index.html" class="back-button">Back</a>
+    <h1>Mock Checkout Site</h1>
+  </div>
+  <div class="content-wrapper">
+    <p>All submitted data is ignored. <a href="https://jihadghanna.github.io/autofill/">Go back</a>.</p>
+  </div>
+  <script>
+    window.addEventListener('scroll', function() {
+      const topBar = document.querySelector('.top-bar');
+      if (window.scrollY > 50) {
+        topBar.classList.add('scrolled');
+      } else {
+        topBar.classList.remove('scrolled');
+      }
+    });
+  </script>
+</body>
 </html>

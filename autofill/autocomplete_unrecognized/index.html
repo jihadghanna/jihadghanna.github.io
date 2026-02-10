@@ -5,14 +5,28 @@
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+  <div class="top-bar">
+    <a href="../../index.html" class="back-button">Back</a>
+    <h1>Mock Checkout Site</h1>
+  </div>
+  <div class="content-wrapper">
+    <h1>Basic form key/value Autocomplete (autocomplete="unrecognized")</h1>
 
-<h1>Basic form key/value Autocomplete (autocomplete="unrecognized")</h1>
-
-<form name="form300off" id="form300off" action="https://jihadghanna.github.io/post/index.html" method="post">
-  This Is: <input type="text" name="n300" autocomplete="no"/><br>
-  <input type="reset" value="Reset">
-  <input type="submit" value="Submit" id="key_value_autocomplete_off_submit">
-</form>
-
+    <form name="form300off" id="form300off" action="https://jihadghanna.github.io/post/index.html" method="post">
+      This Is: <input type="text" name="n300" autocomplete="no"/><br>
+      <input type="reset" value="Reset">
+      <input type="submit" value="Submit" id="key_value_autocomplete_off_submit">
+    </form>
+  </div>
+  <script>
+    window.addEventListener('scroll', function() {
+      const topBar = document.querySelector('.top-bar');
+      if (window.scrollY > 50) {
+        topBar.classList.add('scrolled');
+      } else {
+        topBar.classList.remove('scrolled');
+      }
+    });
+  </script>
 </body>
 </html>

@@ -9,12 +9,12 @@
   <link href="style.css" rel="stylesheet"/>
  </head>
  <body>
-  <header>
-   <h1>
-    Mock Checkout Site
-   </h1>
-  </header>
-  <main>
+  <div class="top-bar">
+   <a href="../index.html" class="back-button">Back</a>
+   <h1>Mock Checkout Site</h1>
+  </div>
+  <div class="content-wrapper">
+   <main>
    <h2>
     Checkout
    </h2>
@@ -1763,12 +1763,23 @@
      </button>
     </div>
    </form>
-  </main>
-  <footer>
-   <p>
-    © 2024 Mock Checkout
-   </p>
-  </footer>
+   </main>
+   <footer>
+    <p>
+     © 2024 Mock Checkout
+    </p>
+   </footer>
+  </div>
+  <script>
+    window.addEventListener('scroll', function() {
+      const topBar = document.querySelector('.top-bar');
+      if (window.scrollY > 50) {
+        topBar.classList.add('scrolled');
+      } else {
+        topBar.classList.remove('scrolled');
+      }
+    });
+  </script>
   <script src="script.js">
   </script>
  </body>
